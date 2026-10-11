@@ -17,9 +17,12 @@ public class BankAccount {
     private Date createAt;
     private double balance;
     private String customerId;
-    private String Type;
+    private String type;
     @Transient
     private Customer customer;
 
 
+    public void setCreatedAt(Date date) {
+        this.createAt = date;
+    }
 }
