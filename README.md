@@ -28,9 +28,10 @@ The goal is to understand how independent Spring Boot applications can work toge
 
 ## Architecture
 
-The following diagram illustrates the architecture of the application.
+The following picture illustrates the architecture of the application.
 
-<img width="1120" height="905" alt="E-Banking Microservices Architecture" src="https://github.com/user-attachments/assets/fa7a791e-9312-4493-a9b2-cf7e10969c79" />
+<img width="2560" height="1462" alt="image" src="https://github.com/user-attachments/assets/cb13de80-47a3-4adf-aa23-7e47193521f4" />
+
 
 ### Architecture Components
 
