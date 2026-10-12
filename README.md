@@ -218,6 +218,71 @@ Once the Discovery Service is running, open the Eureka dashboard:
 
 [http://localhost:8761/](http://localhost:8761/)
 
+### 5. EbankChatbot — AI-Powered Banking Assistant
+
+The **EbankChatbot** module introduces an AI-powered conversational assistant into the e-banking application. It allows users to interact with the banking assistant through natural-language queries and maintains conversation context using a unique conversation ID.
+
+#### EbanAiAgent
+
+The `EbanAiAgent` class handles the AI assistant's conversational logic and interaction with the language model.
+
+<img width="3185" height="1337" alt="EbanAiAgent implementation" src="https://github.com/user-attachments/assets/afa3568d-e9b7-4da6-ba66-47a6a979badd" />
+
+#### EbankChatbotController
+
+The `EbankChatbotController` exposes the chatbot through a REST API, allowing clients to submit questions and receive AI-generated responses.
+
+<img width="3292" height="1155" alt="EbankChatbotController implementation" src="https://github.com/user-attachments/assets/13aebc79-847d-442e-99ed-7f62267da2b3" />
+
+#### Application Properties
+
+The application configuration defines the chatbot's settings and the properties required to run the service.
+
+<img width="2592" height="687" alt="EbankChatbot application properties" src="https://github.com/user-attachments/assets/ad48a193-65e0-4926-acd4-7bff713215fe" />
+
+#### Testing the Chatbot API
+
+The chatbot is accessible through the following endpoint:
+
+```http
+GET http://localhost:8058/chat?query=Bonjour&conversationId=test-123
+```
+
+- `query`: The user's message.
+- `conversationId`: A unique identifier used to associate messages with the same conversation.
+
+<img width="1847" height="300" alt="Chatbot REST API response" src="https://github.com/user-attachments/assets/12236e20-fea3-4e00-8ac8-d39792b1533e" />
+
+#### Swagger UI
+
+The chatbot endpoint can also be tested interactively through Swagger UI:
+
+[Open EbankChatbot API Documentation](http://localhost:8058/swagger-ui/index.html#/ebank-chatbot-controller/chat)
+
+<img width="1677" height="1777" alt="EbankChatbot Swagger UI testing" src="https://github.com/user-attachments/assets/2449e131-7c32-41d2-bb92-5e2e617cf85a" />
+
+#### Conversation Memory
+
+The chatbot supports conversation memory, allowing it to retain relevant context between successive messages associated with the same `conversationId`. This enables more coherent, context-aware interactions instead of treating every message as an entirely separate conversation.
+
+<img width="1725" height="732" alt="Testing chatbot conversation memory" src="https://github.com/user-attachments/assets/dc4b49a4-8c7f-40fa-a40e-94ba598b53d8" />
+
+#### Chatbot Interaction Example
+
+The following screenshot illustrates an example of interacting with the banking assistant and testing its conversational capabilities.
+
+<img width="1785" height="1655" alt="EbankChatbot conversation example" src="https://github.com/user-attachments/assets/cae84571-822c-46b7-87e5-13969530d240" />
+
+**Key features demonstrated:**
+
+- AI-powered natural-language interaction.
+- REST API integration with Spring Boot.
+- Interactive endpoint testing through Swagger UI.
+- Conversation context management using conversation IDs.
+- A foundation for integrating intelligent conversational features into an e-banking microservices architecture.
+
+
+
 The dashboard allows you to inspect registered application instances and their availability.
 
 **Important:** To see the Customer Service, E-Bank Service, and API Gateway in the registry, configure them as Eureka clients and ensure that they use the correct Eureka server URL.
