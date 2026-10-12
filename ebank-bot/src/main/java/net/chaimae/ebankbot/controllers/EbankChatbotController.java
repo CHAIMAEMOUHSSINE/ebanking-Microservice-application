@@ -17,7 +17,10 @@ public class EbankChatbotController {
     }
 
     @GetMapping("/chat")
-    public String chat(@RequestParam(name = "query", defaultValue = "Bonjour") String query) {
-        return ebanAiAgent.chat(query);
+    public String chat(
+            @RequestParam(name = "query", defaultValue = "Bonjour") String query,
+            @RequestParam(name = "conversationId", defaultValue = "default-conversation") String conversationId
+    ) {
+        return ebanAiAgent.chat(query, conversationId);
     }
 }
