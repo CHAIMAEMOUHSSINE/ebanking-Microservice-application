@@ -12,7 +12,7 @@ target/
 .settings
 .springBeans
 .sts4-cache
-.env
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+# Local secrets
+/src/main/resources/application-local.properties
