@@ -272,6 +272,13 @@ The chatbot supports conversation memory, allowing it to retain relevant context
 The following screenshot illustrates an example of interacting with the banking assistant and testing its conversational capabilities.
 
 <img width="1785" height="1655" alt="EbankChatbot conversation example" src="https://github.com/user-attachments/assets/cae84571-822c-46b7-87e5-13969530d240" />
+adding telegram and discord 
+
+<img width="1350" height="1030" alt="image" src="https://github.com/user-attachments/assets/6c0b13ab-2412-4b63-af48-e1f931543e3f" />
+<img width="1587" height="1565" alt="image" src="https://github.com/user-attachments/assets/bc5487ff-5e66-4418-9bc5-70907e17545f" />
+<img width="1410" height="1292" alt="image" src="https://github.com/user-attachments/assets/28413b9e-a277-4464-b8c8-6d2532fe8364" />
+
+
 
 **Key features demonstrated:**
 
