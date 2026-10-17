@@ -27,7 +27,8 @@
             ],
             "styles": [
               "src/styles.css"
-            ]
+            ],
+            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.js"]
           },
           "configurations": {
             "production": {

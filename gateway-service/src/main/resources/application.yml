@@ -3,12 +3,32 @@ spring:
     gateway:
       server:
         webflux:
-          routes:
-            - id: r1
-              uri: lb://CUSTOMER-SERVICE
-              predicates:
-                - Path=CUSTOMER-SERVICE/customers/**
-            - id: r2
-              uri: lb://EBANK-SERVICE
-              predicates:
-                - Path=/EBANK-SERVICE/accounts/**
+          globalcors:
+            configuration:
+             '[/**]':
+              alowed-origins: "*"
+              allowedMethods: "*"
+              allowed-headers: "*"
+
+
+
+
+
+
+
+
+
+
+#spring:
+ #  gateway:
+  #    server:
+   #     webflux:
+    #      routes:
+     #       - id: r1
+      #        uri: lb://CUSTOMER-SERVICE
+       #       predicates:
+        #        - Path=CUSTOMER-SERVICE/customers/**
+         #   - id: r2
+          #    uri: lb://EBANK-SERVICE
+           #   predicates:
+            #    - Path=/EBANK-SERVICE/accounts/**

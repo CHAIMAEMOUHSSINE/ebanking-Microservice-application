@@ -1,0 +1,58 @@
+<div class="container py-4" style="max-width: 900px">
+  <div class="card shadow-sm border-0 chat-card">
+    <div class="card-header bg-primary text-white d-flex align-items-center">
+      <i class="bi bi-robot fs-4 me-2"></i>
+      <div>
+        <div class="fw-semibold">eBank Assistant</div>
+        <div class="small opacity-75">Clients et comptes bancaires</div>
+      </div>
+    </div>
+
+    <div class="chat-body" #chatBox>
+      @if (messages().length === 0) {
+        <div class="text-center text-muted mt-5">
+          <i class="bi bi-chat-dots fs-1"></i>
+          <p class="mt-2">Pose une question ou choisis une suggestion.</p>
+          <div class="d-flex flex-wrap gap-2 justify-content-center">
+            @for (s of suggestions; track s) {
+              <button class="btn btn-outline-primary btn-sm rounded-pill"
+                      (click)="useSuggestion(s)">{{ s }}</button>
+            }
+          </div>
+        </div>
+      }
+
+      @for (m of messages(); track $index) {
+        <div class="d-flex mb-3" [class.justify-content-end]="m.role === 'user'">
+          @if (m.role === 'bot') {
+            <div class="avatar bg-primary text-white me-2"><i class="bi bi-robot"></i></div>
+          }
+          <div class="bubble" [class.bubble-user]="m.role === 'user'"
+               [class.bubble-bot]="m.role === 'bot'">
+            @if (m.role === 'user') {
+              {{ m.content }}
+            } @else if (m.content) {
+              <markdown [data]="m.content"></markdown>
+            } @else {
+              <span class="spinner-grow spinner-grow-sm text-primary"></span>
+              <span class="spinner-grow spinner-grow-sm text-primary"></span>
+              <span class="spinner-grow spinner-grow-sm text-primary"></span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="card-footer bg-white">
+      <div class="input-group">
+        <input type="text" class="form-control rounded-start-pill"
+               placeholder="Écris ta question..."
+               [(ngModel)]="query" (keyup.enter)="send()" />
+        <button class="btn btn-primary rounded-end-pill px-4"
+                (click)="send()" [disabled]="sending() || !query.trim()">
+          <i class="bi bi-send"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
